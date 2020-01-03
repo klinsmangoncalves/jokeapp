@@ -3,17 +3,15 @@ package com.udacity.gradle.builditbigger;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.MobileAds;
 import com.udacity.gradle.imageactivity.ImageActivity;
 
 import br.com.kmg.jokelib.Joke;
-import br.com.kmg.jokelib.JokesGenerator;
+
 
 
 public class MainActivity extends AppCompatActivity implements OnJokeReceivedListener{
@@ -48,15 +46,12 @@ public class MainActivity extends AppCompatActivity implements OnJokeReceivedLis
     }
 
     public void tellJoke(View view) {
-//        Joke joke = new JokesGenerator().generateJoke();
-//        displayJoke(joke);
         new EndpointsAsyncTask().execute(this);
     }
 
     @Override
     public void displayJoke(Joke joke){
 
-        Log.d("MAIN_ACT_", "displayJoke");
         if(joke != null){
             Toast.makeText(this, joke.getJokeDescription(), Toast.LENGTH_SHORT).show();
             Intent myIntent = new Intent(this, ImageActivity.class);

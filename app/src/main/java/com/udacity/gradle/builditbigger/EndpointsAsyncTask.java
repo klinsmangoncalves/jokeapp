@@ -47,8 +47,8 @@ public class EndpointsAsyncTask extends AsyncTask<OnJokeReceivedListener, Void, 
             return joke;
         } catch (IOException e) {
             Log.e("EndPointAsyncTask", e.getMessage());
+            //return new JokesGenerator().generateJoke();
             return null;
-//            return new JokesGenerator().generateJoke();
         }
     }
 
